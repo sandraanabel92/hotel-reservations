@@ -1,0 +1,48 @@
+<div class="container">
+  <header>
+    <h1>Hotel Reservation</h1>
+  </header>
+  <div class="form-container">
+    <div class="customer-type">
+      <input type="radio" id="regular" name="customerType" value="Regular" [(ngModel)]="typeOfCustomer" hidden>
+      <label for="regular" class="toggle-label">Regular</label>
+      <input type="radio" id="rewards" name="customerType" value="Rewards" [(ngModel)]="typeOfCustomer" hidden>
+      <label for="rewards" class="toggle-label">Rewards</label>
+    </div>
+    <div class="date-input">
+      <input #dateInput type="date" placeholder="Select Date">
+      <button (click)="addDate(dateInput.value)">Add Date</button>
+    </div>
+    <div class="dates-list">
+      <h3>Selected Dates:</h3>
+      <ul>
+        <li *ngFor="let date of dates">{{ date }}</li>
+      </ul>
+    </div>
+    <button class="find-button" (click)="findCheapestHotel()">Find Cheapest Hotel</button>
+  </div>
+  <div *ngIf="cheapestHotel" class="cheapest-hotel">
+    <h2>Cheapest Hotel</h2>
+    <div class="hotel-card">
+      <img [src]="cheapestHotel.imageUrl" alt="{{ cheapestHotel.name }}">
+      <h3>{{ cheapestHotel.name }}</h3>
+      <div class="stars">
+        <span *ngFor="let star of [].constructor(cheapestHotel.rating)">&#9733;</span>
+      </div>
+      <p>Price: {{ cheapestPrice }}</p>
+    </div>
+  </div>
+  <div class="hotel-list">
+    <div *ngFor="let hotel of hotelService.hotels" class="hotel-card" [class.highlight]="hotel === cheapestHotel">
+      <img [src]="hotel.imageUrl" alt="{{ hotel.name }}">
+      <h3>{{ hotel.name }}</h3>
+      <div class="stars">
+        <span *ngFor="let star of [].constructor(hotel.rating)">&#9733;</span>
+      </div>
+      <p>Weekday Rate (Regular): {{ hotel.weekdayRateRegular }}</p>
+      <p>Weekday Rate (Rewards): {{ hotel.weekdayRateRewards }}</p>
+      <p>Weekend Rate (Regular): {{ hotel.weekendRateRegular }}</p>
+      <p>Weekend Rate (Rewards): {{ hotel.weekendRateRewards }}</p>
+    </div>
+  </div>
+</div>

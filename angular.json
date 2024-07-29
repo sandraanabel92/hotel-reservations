@@ -5,7 +5,17 @@
   "projects": {
     "hotel-reservations": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -93,6 +103,6 @@
     }
   },
   "cli": {
-    "analytics": "22ca03ee-b791-4fdf-9941-8f5a1de66720"
+    "analytics": false
   }
 }
