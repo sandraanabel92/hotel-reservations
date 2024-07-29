@@ -1,27 +1,69 @@
-# HotelReservations
+# Hotel Reservation System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+## Descripción del Proyecto
 
-## Development server
+Este proyecto es una aplicación de reservación de habitaciones para una cadena hotelera en Miami. La cadena cuenta con tres hoteles: Lakewood, Bridgewood y Ridgewood. Cada hotel tiene tarifas diferentes para días de semana y fines de semana, y tarifas especiales para clientes con recompensas como parte del programa de lealtad. La aplicación permite a los usuarios seleccionar fechas, tipo de cliente (regular o con recompensas), y encontrar el hotel más barato disponible entre las fechas seleccionadas.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Diseño de la Solución
 
-## Code scaffolding
+### Estructura del Proyecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+El proyecto sigue una estructura típica de Angular, con los componentes, servicios y modelos organizados de la siguiente manera:
 
-## Build
+- `src/app`: Contiene los componentes y servicios principales de la aplicación.
+  - `hotel-list`: Componente principal que maneja la interfaz de usuario y la lógica de la aplicación.
+  - `hotel.service.ts`: Servicio que contiene la lógica para calcular el hotel más barato.
+  - `hotel.model.ts`: Modelo que define la estructura de los datos del hotel.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Funcionalidades Principales
 
-## Running unit tests
+1. **Selección de Tipo de Cliente**:
+  - Los usuarios pueden seleccionar si son clientes regulares o con recompensas utilizando un toggle estilizado.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **Ingreso de Fechas**:
+  - Los usuarios pueden ingresar múltiples fechas para su estadía. Las fechas ingresadas se muestran en una lista para mayor claridad.
 
-## Running end-to-end tests
+3. **Cálculo del Hotel Más Barato**:
+  - La aplicación calcula el hotel más barato en función de las fechas seleccionadas y el tipo de cliente. En caso de empate en precio, se selecciona el hotel con la calificación más alta.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. **Visualización de Resultados**:
+  - Los hoteles se muestran con su nombre, calificación en estrellas, tarifas y una imagen representativa. El hotel más barato se resalta visualmente.
 
-## Further help
+### Suposiciones del Problema
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Los días de semana son de lunes a viernes, y los fines de semana son sábado y domingo.
+- Las tarifas de los hoteles son fijas según el tipo de cliente y el día de la semana.
+- El usuario puede ingresar cualquier número de fechas para buscar la mejor tarifa.
+
+## Instrucciones de Ejecución
+
+### Prerrequisitos
+
+Asegúrate de tener instalados los siguientes requisitos en tu sistema:
+
+- Node.js (versión 12 o superior)
+- Angular CLI
+
+### Instalación
+
+1. Clona el repositorio del proyecto:
+
+   ```sh
+   git clone <URL_DEL_REPOSITORIO>
+
+2. Navega al directorio del proyecto:
+  ```sh
+    cd hotel-reservation
+```
+3. Instala las dependencias del proyecto:
+
+   ```sh
+   npm install
+   ```
+4. Inicia el servidor de desarrollo:
+
+   ```sh
+   ng serve
+   ```
+5. Abre tu navegador web y navega a http://localhost:4200 para ver la aplicación en funcionamiento.
+

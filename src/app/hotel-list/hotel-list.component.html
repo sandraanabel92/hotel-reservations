@@ -14,7 +14,7 @@
       <button (click)="addDate(dateInput.value)">Add Date</button>
     </div>
     <div class="dates-list">
-      <h3>Selected Dates:</h3>
+      <h3 *ngIf="dates.length > 0" >Selected Dates:</h3>
       <ul>
         <li *ngFor="let date of dates">{{ date }}</li>
       </ul>

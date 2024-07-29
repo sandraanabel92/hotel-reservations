@@ -26,5 +26,6 @@ export class HotelListComponent {
     const result = this.hotelService.calculateCheapestHotel(this.typeOfCustomer, this.dates);
     this.cheapestHotel = result.hotel;
     this.cheapestPrice = result.price;
+    this.dates = [];
   }
 }
